@@ -34,6 +34,7 @@ function faceCardPointConvert(item) {
   return value;
 }
 
+// This card call will keep track of all the cards and within each suit
 class Cards {
   constructor() {
     this.cardTypes = {
@@ -60,6 +61,7 @@ class Cards {
   }
 }
 
+// The player class will add players to the game and keep track of thhere hand through an array and points to be started at zero.
 class Players {
   constructor(name) {
     this.name = name;
