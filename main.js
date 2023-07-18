@@ -1,3 +1,5 @@
+
+// this createList function accepts 1 argument to be looped through and create the list for the cards
 function createList(item) {
   for (let j = 0; j < 10; j++) {
     if (item.length < 9) {
@@ -18,6 +20,7 @@ class Cards {
       spades: []
     }
   }
+// this createCards method when called will push to each card type array and add the associated cards and there suits to each array through a loop
   createCards() {
     for (let i = 0; i < 4; i++) {
       if (this.cardTypes.hearts.length != 13) {
@@ -43,13 +46,19 @@ class Players {
 
 class Deck {
   constructor() {
-    this.deck = 52;
+    this.deck = [];
   }
 
-  shuffle() {
-    for (let i = 0; i < this.deck; i++) {
+  // the addCards methods will create a new cards varialbe using the new Cards class. Then will call the createCards method to the cards variable and push the newly created cards to the this.deck property and return the property
+  addCards() {
+    let cards = new Cards();
+    cards.createCards();
+    this.deck = [...cards.cardTypes.hearts, ...cards.cardTypes.clubs, ...cards.cardTypes.diamonds, ...cards.cardTypes.spades];
+    return this.deck;
+  }
 
-    }
+  shuffleDeck() {
+    this.addCards();
   }
 }
 
